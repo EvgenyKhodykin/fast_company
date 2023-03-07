@@ -9,21 +9,24 @@ const Users = () => {
     }
 
     const renderPhrase = (number) => {
-        number = users.length
-        let formsOfWord = ''
-        if (number === 0) return <span className="badge bg-danger m-2">Никто с тобой не тусанет</span>
-        if (number === 1) formsOfWord = 'человек'
-        if (number > 4) formsOfWord = 'человек'
-        else formsOfWord = 'человека'
+        if (number === 0) {
+            return `Никто не тусанёт`
+        } else if (number === 1 || number > 4) {
+            return `${number} человек тусанёт`
+        }    
+        return `${number} человека тусанут`    
+    }
 
-        return <span className="badge bg-primary m-2">{number} {formsOfWord} тусанет с тобой сегодня</span>
+    const getBageClasses = (number) => {
+        let classes  = 'badge m-2 '
+        classes += number === 0 ? 'bg-danger' : 'bg-primary'
+        return classes
     }
     
-    const renderUsers = () => {
-        
-        if(users.length === 0) return
-        
-        return (
+    return users.length === 0
+        ? <h2><span className={getBageClasses(users.length)}>{renderPhrase(users.length)} с тобой сегодня</span></h2>
+        : <>
+            <h2><span className={getBageClasses(users.length)}>{renderPhrase(users.length)} с тобой сегодня</span></h2>
             <table className="table  m-2">
                 <thead className='border-dark'>
                     <tr>
@@ -47,15 +50,7 @@ const Users = () => {
                             </tr>)}
                 </tbody>
             </table> 
-        )
-    }
-    
-    return (
-        <>
-            <h2>{renderPhrase()}</h2>
-            {renderUsers()}
         </>
-    )
 }
 
 export default Users
