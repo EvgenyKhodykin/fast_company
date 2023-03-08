@@ -9,11 +9,8 @@ const Users = () => {
     }
 
     const renderPhrase = (number) => {
-        if (number === 0) {
-            return `Никто не тусанёт`
-        } else if (number === 1 || number > 4) {
-            return `${number} человек тусанёт`
-        }    
+        if (number === 0) return `Никто не тусанёт`
+        else if (number === 1 || number > 4) return `${number} человек тусанёт`
         return `${number} человека тусанут`    
     }
 
@@ -23,11 +20,11 @@ const Users = () => {
         return classes
     }
     
-    return users.length === 0
-        ? <h2><span className={getBageClasses(users.length)}>{renderPhrase(users.length)} с тобой сегодня</span></h2>
-        : <>
+    return (
+        <>
             <h2><span className={getBageClasses(users.length)}>{renderPhrase(users.length)} с тобой сегодня</span></h2>
-            <table className="table  m-2">
+            {users.length !== 0
+            ? <table className="table  m-2">
                 <thead className='border-dark'>
                     <tr>
                     <th scope="col">Имя</th>
@@ -39,18 +36,21 @@ const Users = () => {
                     </tr>
                 </thead>
                 <tbody>
-                      {users.map(user => 
-                            <tr key={user._id}>
-                                <td>{user.name}</td>
-                                <td>{user.qualities.map(item => <span key={item._id} className={`badge bg-${item.color}`}>{item.name}</span>)}</td>
-                                <td>{user.profession.name}</td>
-                                <td>{user.completedMeetings}</td>
-                                <td>{user.rate} / 5</td>
-                                <td><button type='button' className='btn btn-danger' onClick={() => handleDelete(user._id)}>delete</button></td>
-                            </tr>)}
+                    {users.map(user => 
+                        <tr key={user._id}>
+                            <td>{user.name}</td>
+                            <td>{user.qualities.map(item => <span key={item._id} className={`badge bg-${item.color}`}>{item.name}</span>)}</td>
+                            <td>{user.profession.name}</td>
+                            <td>{user.completedMeetings}</td>
+                            <td>{user.rate} / 5</td>
+                            <td><button type='button' className='btn btn-danger' onClick={() => handleDelete(user._id)}>delete</button></td>
+                        </tr>)}
                 </tbody>
-            </table> 
+              </table>
+            : null 
+            }
         </>
+    )
 }
 
 export default Users
