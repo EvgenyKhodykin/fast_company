@@ -23,8 +23,8 @@ const Users = () => {
     return (
         <>
             <h2><span className={getBageClasses(users.length)}>{renderPhrase(users.length)} с тобой сегодня</span></h2>
-            {users.length > 0
-            ? <table className="table  m-2">
+            {users.length > 0 &&
+              <table className="table  m-2">
                 <thead className='border-dark'>
                     <tr>
                     <th scope="col">Имя</th>
@@ -46,8 +46,7 @@ const Users = () => {
                             <td><button type='button' className='btn btn-danger' onClick={() => handleDelete(user._id)}>delete</button></td>
                         </tr>)}
                 </tbody>
-              </table>
-            : null 
+              </table> 
             }
         </>
     )
