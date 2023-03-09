@@ -23,7 +23,7 @@ const Users = () => {
     return (
         <>
             <h2><span className={getBageClasses(users.length)}>{renderPhrase(users.length)} с тобой сегодня</span></h2>
-            {users.length !== 0
+            {users.length > 0
             ? <table className="table  m-2">
                 <thead className='border-dark'>
                     <tr>
