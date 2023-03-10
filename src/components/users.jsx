@@ -5,12 +5,12 @@ const Users = () => {
     const [users, setUsers] = useState(API.users.fetchAll())
 
     const handleDelete = userId => {
-        setUsers(prevState => prevState.filter(user => user._id !== userId))
+        setUsers(users.filter(user => user._id !== userId))
     }
 
     const renderPhrase = number => {
         if (number === 0) return `Никто не тусанёт`
-        else if (number === 1 || number > 4) return `${number} человек тусанёт`
+        if (number === 1 || number > 4) return `${number} человек тусанёт`
         return `${number} человека тусанут`
     }
 
