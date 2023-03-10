@@ -14,15 +14,12 @@ const Users = () => {
         return `${number} человека тусанут`
     }
 
-    const getBageClasses = number => {
-        let classes = 'badge m-2 '
-        classes += number === 0 ? 'bg-danger' : 'bg-primary'
-        return classes
-    }
-
     return (
         <>
-            <h2><span className={getBageClasses(users.length)}>{renderPhrase(users.length)} с тобой сегодня</span></h2>
+            <h2>
+                <span className={'badge m-2 bg-' + (users.length > 0 ? 'primary' : 'danger')}>
+                {renderPhrase(users.length)} с тобой сегодня</span>
+            </h2>
             {users.length > 0 && 
                 <table className='table  m-2'>
                     <thead className='border-dark'>
