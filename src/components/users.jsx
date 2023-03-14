@@ -1,52 +1,8 @@
-import {React, useState} from 'react'
-import API from '../api'
+import React from 'react'
+import User from './user'
 
-const Users = () => {
-    const [users, setUsers] = useState(API.users.fetchAll())
-
-    const handleDelete = userId => {
-        setUsers(users.filter(user => user._id !== userId))
-    }
-
-    const renderPhrase = number => {
-        if (number === 0) return `Никто не тусанёт`
-        if (number === 1 || number > 4) return `${number} человек тусанёт`
-        return `${number} человека тусанут`
-    }
-
-    return (
-        <>
-            <h2>
-                <span className={'badge m-2 bg-' + (users.length > 0 ? 'primary' : 'danger')}>
-                {renderPhrase(users.length)} с тобой сегодня</span>
-            </h2>
-            {users.length > 0 && 
-                <table className='table  m-2'>
-                    <thead className='border-dark'>
-                        <tr>
-                            <th scope='col'>Имя</th>
-                            <th scope='col'>Качества</th>
-                            <th scope='col'>Профессия</th>
-                            <th scope='col'>Встретился,раз</th>
-                            <th scope='col'>Оценка</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {users.map(user =>
-                            <tr key={user._id}>
-                                <td>{user.name}</td>
-                                <td>{user.qualities.map(item => <span key={item._id} className={`badge m-1 bg-${item.color}`}>{item.name}</span>)}</td>
-                                <td>{user.profession.name}</td>
-                                <td>{user.completedMeetings}</td>
-                                <td>{user.rate} / 5</td>
-                                <td><button type='button' className='btn btn-danger' onClick={() => handleDelete(user._id)}>delete</button></td>
-                            </tr>
-                        )}
-                    </tbody>
-                </table>
-            }
-        </>
-    )
+function Users(props) {
+    return <User {...props}/>
 }
 
 export default Users
