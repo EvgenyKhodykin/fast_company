@@ -18,7 +18,9 @@ function Users(props) {
                             <th scope='col'>Избранное</th>
                         </tr>
                     </thead>
-                    {users.map(user => <User key={user._id} onDelete={onDelete} onToggle={onToggle} {...user}/>)}
+                    <tbody>
+                        {users.map(user => <User key={user._id} onDelete={onDelete} onToggle={onToggle} {...user}/>)}
+                    </tbody>
                 </table>
             }
         </>
