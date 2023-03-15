@@ -1,6 +1,6 @@
 import { React,useState } from 'react'
-import Users from './users'
-import SearchStatus from './searchStatus'
+import Users from './Users'
+import SearchStatus from './SearchStatus'
 import API from '../api'
 
 function App() {
@@ -11,27 +11,17 @@ function App() {
     }
 
     const handleToggleBookmark = id => {
-        
+        const newUsers = [...users]
+        const currentIndex = newUsers.findIndex(item => item._id === id)
+        if(newUsers[currentIndex].bookmark) newUsers[currentIndex].bookmark = false
+        else newUsers[currentIndex].bookmark = true
+        setUsers(newUsers)
     }
 
     return (
         <div>
             <SearchStatus length={users.length}/>
-            {users.length > 0 && 
-                <table className='table  m-2'>
-                    <thead className='border-dark'>
-                        <tr>
-                            <th scope='col'>Имя</th>
-                            <th scope='col'>Качества</th>
-                            <th scope='col'>Профессия</th>
-                            <th scope='col'>Встретился,раз</th>
-                            <th scope='col'>Оценка</th>
-                            <th scope='col'>Избранное</th>
-                        </tr>
-                    </thead>
-                    {users.map(user => <Users key={user._id} onDelete={handleDelete} onToggle={handleToggleBookmark} {...user}/>)}
-                </table>
-            }
+            <Users onDelete={handleDelete} onToggle={handleToggleBookmark} users={users}/>
         </div>
     )
 }
