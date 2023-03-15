@@ -8,7 +8,7 @@
     return (
         <tr>
             <td>{name}</td>
-            <td>{qualities.map(item => <Qualitie key={item._id} color={item.color} name={item.name} _id={item._id}/>)}</td>
+            <td>{qualities.map(item => <Qualitie key={item._id} color={item.color} name={item.name}/>)}</td>
             <td>{profession.name}</td>
             <td>{completedMeetings}</td>
             <td>{rate} / 5</td>
