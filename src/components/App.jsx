@@ -13,8 +13,7 @@ function App() {
     const handleToggleBookmark = id => {
         const newUsers = [...users]
         const currentIndex = newUsers.findIndex(item => item._id === id)
-        if(newUsers[currentIndex].bookmark) newUsers[currentIndex].bookmark = false
-        else newUsers[currentIndex].bookmark = true
+        newUsers[currentIndex].bookmark = !newUsers[currentIndex].bookmark
         setUsers(newUsers)
     }
 

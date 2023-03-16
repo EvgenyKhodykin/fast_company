@@ -1,8 +1,7 @@
 import React from 'react'
 import User from './User'
 
-function Users(props) {
-    const {users, onToggle, onDelete} = props
+function Users({users, ...rest}) {
     
     return (
         <>
@@ -19,7 +18,7 @@ function Users(props) {
                         </tr>
                     </thead>
                     <tbody>
-                        {users.map(user => <User key={user._id} onDelete={onDelete} onToggle={onToggle} {...user}/>)}
+                        {users.map(user => <User key={user._id} {...rest} {...user}/>)}
                     </tbody>
                 </table>
             }
