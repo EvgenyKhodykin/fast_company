@@ -11,11 +11,11 @@ function App() {
     }
 
     const handleToggleBookmark = id => {
-        const newUsers = [...users]
-        newUsers.forEach(user => {
+        setUsers(users.reduce((acc,user) => {
             if(user._id === id) user.bookmark = !user.bookmark
-        })
-        setUsers(newUsers)
+            acc.push(user)
+            return acc
+        },[]))
     }
 
     return (
