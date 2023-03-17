@@ -11,11 +11,15 @@ function App() {
     }
 
     const handleToggleBookmark = id => {
-        setUsers(users.reduce((acc,user) => {
-            if(user._id === id) user.bookmark = !user.bookmark
-            acc.push(user)
-            return acc
-        },[]))
+        setUsers(users.map(user => {
+            if(user._id === id) {
+                return {
+                    ...user,
+                    bookmark: !user.bookmark
+                }
+            }
+            return user
+        }))
     }
 
     return (
