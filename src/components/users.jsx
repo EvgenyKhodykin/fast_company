@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
-import Pagination from './Pagination'
-import User from './User'
-import paginate from '../utils/paginate'
+import React, { useState } from "react"
+import Pagination from "./Pagination"
+import User from "./User"
+import paginate from "../utils/paginate"
 
 function Users({ users, ...rest }) {
     const count = users.length
@@ -9,26 +9,26 @@ function Users({ users, ...rest }) {
     const [currentPage, setCurrentPage] = useState(1)
     const userCrop = paginate(users, currentPage, pageSize)
 
-    const handlePageChange = pageIndex => {
+    const handlePageChange = (pageIndex) => {
         setCurrentPage(pageIndex)
     }
 
     return (
         <>
             {users.length > 0 && (
-                <table className='table  m-2'>
-                    <thead className='border-dark'>
+                <table className="table  m-2">
+                    <thead className="border-dark">
                         <tr>
-                            <th scope='col'>Имя</th>
-                            <th scope='col'>Качества</th>
-                            <th scope='col'>Профессия</th>
-                            <th scope='col'>Встретился,раз</th>
-                            <th scope='col'>Оценка</th>
-                            <th scope='col'>Избранное</th>
+                            <th scope="col">Имя</th>
+                            <th scope="col">Качества</th>
+                            <th scope="col">Профессия</th>
+                            <th scope="col">Встретился,раз</th>
+                            <th scope="col">Оценка</th>
+                            <th scope="col">Избранное</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {userCrop.map(user => (
+                        {userCrop.map((user) => (
                             <User key={user._id} {...rest} {...user} />
                         ))}
                     </tbody>
