@@ -1,11 +1,21 @@
-import React from 'react'
+import React, { useState } from 'react'
+import Pagination from './Pagination'
 import User from './User'
+import paginate from '../utils/paginate'
 
-function Users({users, ...rest}) {
-    
+function Users({ users, ...rest }) {
+    const count = users.length
+    const pageSize = 4
+    const [currentPage, setCurrentPage] = useState(1)
+    const userCrop = paginate(users, currentPage, pageSize)
+
+    const handlePageChange = pageIndex => {
+        setCurrentPage(pageIndex)
+    }
+
     return (
         <>
-            {users.length > 0 && 
+            {users.length > 0 && (
                 <table className='table  m-2'>
                     <thead className='border-dark'>
                         <tr>
@@ -18,12 +28,20 @@ function Users({users, ...rest}) {
                         </tr>
                     </thead>
                     <tbody>
-                        {users.map(user => <User key={user._id} {...rest} {...user}/>)}
+                        {userCrop.map(user => (
+                            <User key={user._id} {...rest} {...user} />
+                        ))}
                     </tbody>
                 </table>
-            }
+            )}
+            <Pagination
+                currentPage={currentPage}
+                itemsCount={count}
+                pageSize={pageSize}
+                onPageChange={handlePageChange}
+            />
         </>
-    )    
+    )
 }
 
 export default Users
