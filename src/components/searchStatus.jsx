@@ -1,5 +1,5 @@
 function SearchStatus({ length }) {
-    const renderPhrase = length => {
+    const renderPhrase = (length) => {
         if (length === 0) return `Никто не тусанёт`
         if (length === 1 || length > 4) return `${length} человек тусанёт`
         return `${length} человека тусанут`
@@ -7,7 +7,12 @@ function SearchStatus({ length }) {
 
     return (
         <h2>
-            <span className={'badge m-2 bg-' + (length > 0 ? 'primary' : 'danger')}>{renderPhrase(length)} с тобой сегодня</span>
+            <span
+                className={
+                    "badge m-2 bg-" + (length > 0 ? "primary" : "danger")
+                }>
+                {renderPhrase(length)} с тобой сегодня
+            </span>
         </h2>
     )
 }
