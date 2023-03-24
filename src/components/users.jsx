@@ -4,7 +4,7 @@ import User from './User'
 import paginate from '../utils/paginate'
 import PropTypes from 'prop-types'
 
-function Users ({ users, ...rest }) {
+function Users({ users, ...rest }) {
     const count = users.length
     const pageSize = 4
     const [currentPage, setCurrentPage] = useState(1)

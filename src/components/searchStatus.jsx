@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-function SearchStatus ({ length }) {
+function SearchStatus({ length }) {
     const renderPhrase = length => {
         if (length === 0) return 'Никто не тусанёт'
         if (length === 1 || length > 4) return `${length} человек тусанёт`

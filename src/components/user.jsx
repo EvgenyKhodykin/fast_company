@@ -3,7 +3,7 @@ import Qualitie from './Qualitie'
 import BookMark from './Bookmark'
 import PropTypes from 'prop-types'
 
-function User (props) {
+function User(props) {
     const { name, qualities, profession, completedMeetings, rate, onDelete, _id, onToggle, bookmark } = props
 
     return (

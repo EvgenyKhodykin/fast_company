@@ -14,6 +14,7 @@ module.exports = {
         indent: ['error', 4],
         quotes: ['error', 'single'],
         semi: ['error', 'never'],
-        'no-console': 'warn'
+        'no-console': 'warn',
+        'space-before-function-paren': ['error', 'never']
     }
 }

@@ -3,7 +3,7 @@ import Users from './Users'
 import SearchStatus from './SearchStatus'
 import API from '../api'
 
-function App () {
+function App() {
     const [users, setUsers] = useState(API.users.fetchAll())
 
     const handleDelete = userId => {
