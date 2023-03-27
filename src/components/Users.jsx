@@ -9,13 +9,13 @@ import SearchStatus from './SearchStatus'
 
 function Users({ users, ...rest }) {
     const [currentPage, setCurrentPage] = useState(1)
-    const [professions, setProfessions] = useState(API.fetchAll())
+    const [professions, setProfessions] = useState(API.professions.fetchAll())
     const [selectedProf, setSelectedProf] = useState()
 
     const pageSize = 2
 
     useEffect(() => {
-        API.fetchAll().then(data => setProfessions(data))
+        API.professions.fetchAll().then(data => setProfessions(data))
     }, [])
 
     useEffect(() => {

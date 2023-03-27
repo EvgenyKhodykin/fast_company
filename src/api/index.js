@@ -1,8 +1,8 @@
 import * as users from './fake.api/user.api'
-import fetchAll from './fake.api/professions.api'
+import * as professions from './fake.api/professions.api'
 
 const API = {
     users,
-    fetchAll
+    professions
 }
 export default API
