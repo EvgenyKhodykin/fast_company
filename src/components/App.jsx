@@ -1,6 +1,5 @@
 import { React, useState } from 'react'
 import Users from './Users'
-import SearchStatus from './SearchStatus'
 import API from '../api'
 
 function App() {
@@ -24,12 +23,7 @@ function App() {
         )
     }
 
-    return (
-        <div>
-            <SearchStatus length={users.length} />
-            <Users onDelete={handleDelete} onToggle={handleToggleBookmark} users={users} />
-        </div>
-    )
+    return <Users onDelete={handleDelete} onToggle={handleToggleBookmark} users={users} />
 }
 
 export default App
