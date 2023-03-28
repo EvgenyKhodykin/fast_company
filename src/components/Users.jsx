@@ -58,7 +58,7 @@ function Users({ users, ...rest }) {
             )}
 
             <div className='d-flex flex-column'>
-                <SearchStatus length={count} />
+                {users && <SearchStatus length={count} />}
                 {count > 0 && (
                     <table className='table  m-2'>
                         <thead className='border-dark'>
@@ -92,7 +92,7 @@ function Users({ users, ...rest }) {
 }
 
 Users.propTypes = {
-    users: PropTypes.array.isRequired
+    users: PropTypes.oneOfType([PropTypes.string, PropTypes.array])
 }
 
 export default Users

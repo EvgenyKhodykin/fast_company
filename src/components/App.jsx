@@ -3,7 +3,7 @@ import Users from './Users'
 import API from '../api'
 
 function App() {
-    const [users, setUsers] = useState([])
+    const [users, setUsers] = useState('')
 
     useEffect(() => {
         API.users.fetchAll().then(data => setUsers(data))
