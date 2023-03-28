@@ -9,7 +9,7 @@ import SearchStatus from './SearchStatus'
 
 function Users({ users, ...rest }) {
     const [currentPage, setCurrentPage] = useState(1)
-    const [professions, setProfessions] = useState(API.professions.fetchAll())
+    const [professions, setProfessions] = useState()
     const [selectedProf, setSelectedProf] = useState()
 
     const pageSize = 3
