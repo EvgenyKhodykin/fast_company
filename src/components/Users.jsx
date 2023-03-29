@@ -31,7 +31,7 @@ function Users({ users, ...rest }) {
     }
 
     const filteredUsers = selectedProf
-        ? users.filter(user => user.profession.name === selectedProf.name)
+        ? users.filter(user => user.profession._id === selectedProf._id)
         : users
 
     const count = filteredUsers.length
@@ -58,7 +58,7 @@ function Users({ users, ...rest }) {
             )}
 
             <div className='d-flex flex-column'>
-                {users && <SearchStatus length={count} />}
+                <SearchStatus length={count} />
                 {count > 0 && (
                     <table className='table  m-2'>
                         <thead className='border-dark'>

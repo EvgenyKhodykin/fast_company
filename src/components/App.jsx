@@ -27,7 +27,13 @@ function App() {
         )
     }
 
-    return <Users onDelete={handleDelete} onToggle={handleToggleBookmark} users={users} />
+    return (
+        <>
+            {users && (
+                <Users onDelete={handleDelete} onToggle={handleToggleBookmark} users={users} />
+            )}
+        </>
+    )
 }
 
 export default App
