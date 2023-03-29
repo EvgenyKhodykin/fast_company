@@ -92,7 +92,7 @@ function Users({ users, ...rest }) {
 }
 
 Users.propTypes = {
-    users: PropTypes.oneOfType([PropTypes.string, PropTypes.array])
+    users: PropTypes.array
 }
 
 export default Users
