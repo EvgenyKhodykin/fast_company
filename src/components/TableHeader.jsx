@@ -15,7 +15,16 @@ function TableHeader({ onSort, selectedSort, columns }) {
         <thead className='border-dark'>
             <tr>
                 {Object.keys(columns).map(column => (
-                    <th key={column} onClick={() => handleSort(columns[column].iter)} scope='col'>
+                    <th
+                        key={column}
+                        onClick={
+                            columns[column].iter
+                                ? () => handleSort(columns[column].iter)
+                                : undefined
+                        }
+                        role={columns[column].iter && 'button'}
+                        scope='col'
+                    >
                         {columns[column].name}
                     </th>
                 ))}
