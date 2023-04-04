@@ -33,7 +33,12 @@ function Users({ users, ...rest }) {
     }
 
     const handleSort = item => {
-        setSortBy({ iter: item, order: 'asc' })
+        if (sortBy.iter === item) {
+            setSortBy(prevState => ({
+                ...prevState,
+                order: prevState.order === 'asc' ? 'desc' : 'asc'
+            }))
+        } else setSortBy({ iter: item, order: 'asc' })
     }
 
     const filteredUsers = selectedProf
