@@ -10,7 +10,8 @@ function UserTable({ users, onSort, selectedSort, ...rest }) {
         profession: { path: 'profession.name', name: 'Профессия' },
         completedMeetings: { path: 'completedMeetings', name: 'Встретился, раз' },
         rate: { path: 'rate', name: 'Оценка' },
-        bookmark: { path: 'bookmark', name: 'Избранное' }
+        bookmark: { path: 'bookmark', name: 'Избранное', component: 'bookmark' },
+        delete: { component: 'delete' }
     }
 
     return (
