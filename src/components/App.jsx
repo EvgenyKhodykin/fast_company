@@ -30,7 +30,11 @@ function App() {
     return (
         <>
             {users && (
-                <Users onDelete={handleDelete} onToggle={handleToggleBookmark} users={users} />
+                <Users
+                    onDelete={handleDelete}
+                    onToggleBookMark={handleToggleBookmark}
+                    users={users}
+                />
             )}
         </>
     )

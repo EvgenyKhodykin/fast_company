@@ -1,10 +1,20 @@
 import React from 'react'
 import Qualitie from './Qualitie'
-import BookMark from './Bookmark'
+import BookMark from './BookMark'
 import PropTypes from 'prop-types'
 
 function User(props) {
-    const { name, qualities, profession, completedMeetings, rate, onDelete, _id, onToggle, bookmark } = props
+    const {
+        name,
+        qualities,
+        profession,
+        completedMeetings,
+        rate,
+        onDelete,
+        _id,
+        onToggleBookMark,
+        bookmark
+    } = props
 
     return (
         <tr>
@@ -18,7 +28,7 @@ function User(props) {
             <td>{completedMeetings}</td>
             <td>{rate} / 5</td>
             <td>
-                <button onClick={() => onToggle(_id)}>
+                <button onClick={() => onToggleBookMark(_id)}>
                     <BookMark status={bookmark} />
                 </button>
             </td>
@@ -38,7 +48,7 @@ User.propTypes = {
     completedMeetings: PropTypes.number.isRequired,
     rate: PropTypes.number.isRequired,
     onDelete: PropTypes.func.isRequired,
-    onToggle: PropTypes.func.isRequired,
+    onToggleBookMark: PropTypes.func.isRequired,
     _id: PropTypes.string.isRequired,
     bookmark: PropTypes.bool.isRequired
 }
