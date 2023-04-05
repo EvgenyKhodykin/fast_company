@@ -1,9 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import TableHeader from './TableHeader'
-import TableBody from './TableBody'
 import BookMark from './BookMark'
 import QualitiesList from './QualitiesList'
+import Table from './Table'
 
 function UserTable({ users, onSort, selectedSort, onToggleBookMark, onDelete }) {
     const columns = {
@@ -33,12 +32,7 @@ function UserTable({ users, onSort, selectedSort, onToggleBookMark, onDelete }) 
         }
     }
 
-    return (
-        <table className='table  m-2'>
-            <TableHeader {...{ onSort, selectedSort, columns }} />
-            <TableBody {...{ columns, data: users }} />
-        </table>
-    )
+    return <Table onSort={onSort} selectedSort={selectedSort} columns={columns} data={users} />
 }
 
 UserTable.propTypes = {
