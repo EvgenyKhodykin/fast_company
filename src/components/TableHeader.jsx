@@ -11,6 +11,14 @@ function TableHeader({ onSort, selectedSort, columns }) {
         } else onSort({ path: item, order: 'asc' })
     }
 
+    const renderSortDirection = item => {
+        if (selectedSort.path === item) {
+            if (selectedSort.order === 'asc') return <i className='bi bi-caret-down-fill'></i>
+            return <i className='bi bi-caret-up-fill'></i>
+        }
+        return undefined
+    }
+
     return (
         <thead className='border-dark'>
             <tr>
@@ -26,6 +34,7 @@ function TableHeader({ onSort, selectedSort, columns }) {
                         scope='col'
                     >
                         {columns[column].name}
+                        {columns[column].path && renderSortDirection(columns[column].path)}
                     </th>
                 ))}
             </tr>
