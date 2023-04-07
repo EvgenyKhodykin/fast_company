@@ -12,7 +12,7 @@ function TableHeader({ onSort, selectedSort, columns }) {
     }
 
     const renderSortDirection = item => {
-        if (selectedSort.path !== item) return undefined
+        if (selectedSort.path !== item) return null
         if (selectedSort.order === 'asc') return <i className='bi bi-caret-down-fill'></i>
         return <i className='bi bi-caret-up-fill'></i>
     }
