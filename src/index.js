@@ -1,8 +1,15 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import './index.css'
-import App from './components/App'
+import App from './App'
+import { BrowserRouter } from 'react-router-dom/cjs/react-router-dom.min'
 import 'bootstrap/dist/css/bootstrap.css'
+import './index.css'
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
-root.render(<App />)
+root.render(
+    <BrowserRouter>
+        <React.StrictMode>
+            <App />
+        </React.StrictMode>
+    </BrowserRouter>
+)
