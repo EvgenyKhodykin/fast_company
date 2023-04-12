@@ -9,13 +9,13 @@ import SearchStatus from './SearchStatus'
 import UserTable from './UsersTable'
 
 function UsersList() {
+    const [users, setUsers] = useState()
     const [currentPage, setCurrentPage] = useState(1)
     const [professions, setProfessions] = useState()
     const [selectedProf, setSelectedProf] = useState()
     const [sortBy, setSortBy] = useState({ iter: 'name', order: 'asc' })
-    const pageSize = 4
 
-    const [users, setUsers] = useState()
+    const pageSize = 4
 
     useEffect(() => {
         API.users.fetchAll().then(data => setUsers(data))
