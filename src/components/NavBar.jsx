@@ -1,23 +1,23 @@
 import React from 'react'
-// import { Link } from 'react-router-dom/cjs/react-router-dom.min'
+import { Link } from 'react-router-dom/cjs/react-router-dom.min'
 
 function NavBar() {
     return (
         <ul className='nav'>
             <li className='nav-item'>
-                <a className='nav-link active' aria-current='page' href='/main'>
+                <Link className='nav-link active' aria-current='page' to='/main'>
                     Main
-                </a>
+                </Link>
             </li>
             <li className='nav-item'>
-                <a className='nav-link' href='/login'>
+                <Link className='nav-link' to='/login'>
                     Login
-                </a>
+                </Link>
             </li>
             <li className='nav-item'>
-                <a className='nav-link' href='/users'>
+                <Link className='nav-link' to='/users'>
                     Users
-                </a>
+                </Link>
             </li>
         </ul>
     )
