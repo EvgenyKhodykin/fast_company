@@ -8,7 +8,7 @@ import API from '../api'
 import SearchStatus from './SearchStatus'
 import UserTable from './UsersTable'
 
-function Users() {
+function UsersList() {
     const [currentPage, setCurrentPage] = useState(1)
     const [professions, setProfessions] = useState()
     const [selectedProf, setSelectedProf] = useState()
@@ -115,8 +115,8 @@ function Users() {
     return 'Loading...'
 }
 
-Users.propTypes = {
+UsersList.propTypes = {
     users: PropTypes.array
 }
 
-export default Users
+export default UsersList
