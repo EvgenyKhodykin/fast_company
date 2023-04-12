@@ -24,7 +24,7 @@ function UserPage({ id }) {
                 <QualitiesList {...user} />
                 <div>completedMeetings: {user.completedMeetings}</div>
                 <h3>Rate: {user.rate}</h3>
-                <button className='btn btn-outline-success' onClick={handleUsers}>
+                <button className='btn btn-outline-primary' onClick={handleUsers}>
                     Все пользователи
                 </button>
             </div>
