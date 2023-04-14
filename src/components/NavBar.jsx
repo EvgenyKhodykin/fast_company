@@ -3,19 +3,23 @@ import { Link } from 'react-router-dom/cjs/react-router-dom.min'
 
 function NavBar() {
     return (
-        <nav className='nav nav-pills'>
-            <Link className='nav-link' to='/'>
-                Main
-            </Link>
-
-            <Link className='nav-link' to='/login'>
-                Login
-            </Link>
-
-            <Link className='nav-link' to='/users'>
-                Users
-            </Link>
-        </nav>
+        <ul className='nav nav-pills'>
+            <li className='nav-item'>
+                <Link className='nav-link' aria-current='page' to='/'>
+                    Main
+                </Link>
+            </li>
+            <li className='nav-item'>
+                <Link className='nav-link' to='/login'>
+                    Login
+                </Link>
+            </li>
+            <li className='nav-item'>
+                <Link className='nav-link' to='/users'>
+                    Users
+                </Link>
+            </li>
+        </ul>
     )
 }
 
